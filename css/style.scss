@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;700;800&display=swap');
 
 body {
     font-family: Sora, sans-serif;
     font-size: large;
     height: 100vh;
-    width: 80vw;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
 }
 
 h1 {
@@ -19,14 +18,16 @@ h1 {
 }
 
 h3 {
-    margin: 10px;
+    margin: 0 0 0 10px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
-    flex-wrap: wrap;    
+    border-radius: 0.5em;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
     .container {
         margin: 10px;
@@ -34,19 +35,25 @@ form {
     }
 
     .book-input {
+        border: 2px solid lightgray ;
         border-radius: 0.5em;
         border-width: 1px;
         padding: 0.3em;
         font-family: inherit;
         font-size: 1em;
         font-weight: 300;
+        margin-top: 3px;
+    }
+
+    .book-input:hover {
+        border: 1px solid black;
     }
 
     .button {
         width: max-content;
         background-color: #a1887f;
         color: whitesmoke;
-        margin-left: 10px;
+        margin: 10px;
     }
 
     label {
@@ -55,7 +62,8 @@ form {
 }
 
 .read{
-    background-color: #94d82d;
+    background-color: #66a80f;
+    color: #f8f9fa;
 }
 
 .button {
@@ -65,9 +73,48 @@ form {
     border-radius: 0.5em;
     padding: 0.3em 0.8em;
     border-width: 1px;
+    border: 1px solid lightgray;
+    width: 120px;
+    height: 37px;
+}
+
+.button:hover {
+    border: 2px solid #4dabf7;
+    transition: all 0.15s ease-in-out;
 }
 
 .delete {
     background-color: #d11c5b;
     color: whitesmoke;
+}
+
+#library {
+    min-width: 900px;
+    border-radius: 5px;
+    overflow: hidden;
+    border-collapse: collapse;
+
+    thead tr {
+        text-align: left; 
+    }
+
+    th {
+        padding: 10px;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    tbody {
+        tr {
+           padding: 20px;
+           border-top: 1px solid #dddddd;
+        }
+
+        tr:hover {
+            background-color: #D9EAFF;
+            transition: all 0.2s ease-in-out;
+        }
+    }
 }
