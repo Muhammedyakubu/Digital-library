@@ -5,39 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigiLib</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1 class="header">Digi<span>Lib</span></h1>
 
-    <form class="new-book-form">
-        <h3>Add New Book</h3>
+    <h3>Add New Book</h3>
+    <form class="new-book-form">        
 
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="test-title">
+        <div class=container>
+            <label for="title">Title:</label><br>
+            <input class="book-input" type="text" id="title" name="title" value="test-title">
+        </div>
         
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" value="test-author">
+        <div class=container>
+            <label for="author">Author:</label><br>
+            <input class="book-input" type="text" id="author" name="author" value="test-author">
+        </div>
         
-        <label for="pages">Pages:</label>
-        <input type="text" id="pages" name="pages" value="100">
+        <div class="container">
+            <label for="pages">Pages:</label><br>
+            <input class="book-input" type="number" id="pages" name="pages" value="100">
+        </div>
+            
+        <div class="container">
+            <label for="read">Have you read it?</label>
+            <select class="book-input" id="read" name="read">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br>
+        </div>
         
-        <label for="read">Have you read it?</label>
-        <select id="read" name="read">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select>
-        
-        <input type="submit" value="Add Book">
+        <input type="submit" value="Add Book" class="button">
     </form>
     
     <table id="library">
-        <tr>
+        <thead>
             <th>Title</th>
             <th>Author</th>
             <th>Pages</th>
             <th>Read Status</th>
-            <th></th>
-        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
     </table>
     
 

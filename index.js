@@ -1,20 +1,15 @@
-
 let myLibrary = [];
-
-const library = document.querySelector("#library");
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  /* this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages,` + (this.read ? " has been read" : " not read yet");
-  } */
 }
 
 
 function addBookToLibrary (book) {
+  const library = document.querySelector("tbody");
   const bookCard = document.createElement("tr");
   bookCard.className = "book";
 
@@ -25,8 +20,16 @@ function addBookToLibrary (book) {
 
     if (property === "read") {
       node = document.createElement("button");
+      node.classList.toggle("button");
       node.setAttribute("id", "book" + myLibrary.length);
-      node.textContent = ((book.read === 'true') ? "Read": "Not read");
+
+      if (book.read === 'true') {
+        node.textContent ="Read";
+        node.classList.toggle("read");
+      } else {
+        node.textContent ="Not Read";
+      }
+      
       node.addEventListener('click', toggleRead);
     } else {
       node = document.createTextNode(book[property]);
@@ -40,7 +43,8 @@ function addBookToLibrary (book) {
   //add delete button
   const prop = document.createElement("td");
   const deleteButton = document.createElement("button");
-  deleteButton.classList.toggle("delete-button");
+  deleteButton.classList.toggle("delete");
+  deleteButton.classList.toggle("button");
   deleteButton.setAttribute("id", "delete" + myLibrary.length);
   deleteButton.textContent = "Delete";
   deleteButton.addEventListener('click', deleteBook);
@@ -82,6 +86,7 @@ function toggleRead (e) {
     book.read = true;
     readButton.textContent = "Read";
   }
+  readButton.classList.toggle("read");
 }
 
 //adding a new book
