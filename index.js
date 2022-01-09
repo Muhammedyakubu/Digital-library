@@ -9,6 +9,7 @@ function Book(title, author, pages, read) {
 
 //TODO: convert add book to modal(popup)
 //      figure out how to change input color while text is being input
+//        Implement localStorage
 
 function addBookToLibrary (book) {
   const library = document.querySelector("tbody");
@@ -25,7 +26,7 @@ function addBookToLibrary (book) {
       node.classList.toggle("button");
       node.setAttribute("id", "book" + myLibrary.length);
 
-      if (book.read === 'true') {
+      if (book.read === true || book.read === "true") {
         node.textContent ="Read";
         node.classList.toggle("read");
       } else {
@@ -123,5 +124,7 @@ formElem.addEventListener('submit', addNewBook);
 
 //add some test books
 let harryPotter = new Book("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 223, false);
+let LOR = new Book("The Lord of the Rings","J. R. R. Tolkien", 1137, true);
 
 addBookToLibrary(harryPotter);
+addBookToLibrary(LOR);
