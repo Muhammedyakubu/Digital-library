@@ -54,7 +54,8 @@ form {
         margin-top: 3px;
     }
 
-    .book-input:hover {
+    .book-input:hover, 
+    .book-input:focus {
         border: 1px solid black;
     }
 

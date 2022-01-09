@@ -7,6 +7,8 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+//TODO: convert add book to modal(popup)
+//      figure out how to change input color while text is being input
 
 function addBookToLibrary (book) {
   const library = document.querySelector("tbody");
@@ -29,7 +31,7 @@ function addBookToLibrary (book) {
       } else {
         node.textContent ="Not Read";
       }
-      
+
       node.addEventListener('click', toggleRead);
     } else {
       node = document.createTextNode(book[property]);

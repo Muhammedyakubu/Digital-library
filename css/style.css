@@ -69,7 +69,8 @@ form .book-input {
   margin-top: 3px;
 }
 
-form .book-input:hover {
+form .book-input:hover,
+form .book-input:focus {
   border: 1px solid black;
 }
 
