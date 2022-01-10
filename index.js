@@ -7,11 +7,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-/*TODO: Implement localStorage
-        Implement feature to suggest books and autofill data
-        add dark mode
-        add summary/dashboard feature
- */
+
 const addButton = document.querySelector(".modal");
 addButton.addEventListener("click", toggleForm);
 
@@ -25,6 +21,8 @@ function toggleForm(e) {
   const menu = document.querySelector(".new-book-form");
 
   menu.classList.toggle("hidden");
+
+  updateLocalStorage();
 }
 
 function renderBookInLibrary(book) {
@@ -86,15 +84,12 @@ function deleteBook(e) {
 }
 
 function toggleRead(e) {
-  const readButton = e.target;
+  const readButton = e.target;;
 
-  console.log(e.target);
-
-  //the index of the book in myLibrary
-  const book = myLibrary[readButton.id.slice(-1)];
+  //the book in myLibrary
+  let book = myLibrary.find( book => book.title === e.target.parentElement.parentElement.firstChild.textContent);
 
   //changing the read state and button text
-  console.log(book);
   if (book.read) {
     book.read = false;
     readButton.textContent = "Not Read";
@@ -111,7 +106,7 @@ function toggleRead(e) {
 function addNewBook(e) {
   let book;
 
-  if (e.constructor.name == "Book") {
+  if (e.constructor.name == "Book" || e.constructor.name == "Object") {
     book = e;
   } else {
     book = new Book();
@@ -134,6 +129,7 @@ function addNewBook(e) {
       }
       input.value = "";
     }
+    addButton.click();
   }
   // adding book to library
   renderBookInLibrary(book);
@@ -141,8 +137,6 @@ function addNewBook(e) {
 
   //setting library in local storage
   updateLocalStorage();
-
-  //TODO: add input validation
 }
 
 function render (arr) {
@@ -155,6 +149,9 @@ function updateLocalStorage() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
+//=================MAIN CODE=========================//
+
+// link the submit button
 const formElem = document.querySelector("form");
 formElem.addEventListener("submit", addNewBook);
 
@@ -169,9 +166,15 @@ let LOR = new Book("The Lord of the Rings", "J. R. R. Tolkien", 1137, true);
 const DEFAULT_CONTENT = [harryPotter, LOR];
 
 //displaying user data
-if (localStorage.getItem("library")) {
-  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-  render(myLibrary);
+let userData = localStorage.getItem("myLibrary");
+if (userData) {
+  userData = JSON.parse(userData);
+  render(userData);
 } else {
   render(DEFAULT_CONTENT);
 }
+
+/*TODO: Implement feature to suggest books and autofill data
+        add dark mode
+        add summary/dashboard feature
+ */
