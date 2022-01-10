@@ -27,7 +27,7 @@ a {
   font-size: smaller;
   margin: 0 0 30px 0;
   text-decoration: none;
-  color: #795548;
+  color: #8d6e63;
 }
 
 h1 {
@@ -51,7 +51,7 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 2em;
+  margin-bottom: 15px;
   border-radius: 0.5em;
   padding: 1em;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -77,16 +77,12 @@ form .book-input {
 }
 
 form .button {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  background-color: #a1887f;
+  background-color: #8d6e63;
   color: whitesmoke;
-  margin: 10px;
-}
-
-form label {
-  font-weight: 300;
+  margin-top: 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .read {
@@ -126,6 +122,7 @@ form label {
   border-radius: 5px;
   overflow: hidden;
   border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 #library thead tr {
@@ -144,5 +141,10 @@ form label {
 #library tbody tr {
   padding: 20px;
   border-top: 1px solid #dddddd;
+}
+
+.modal {
+  background-color: #1098ad;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

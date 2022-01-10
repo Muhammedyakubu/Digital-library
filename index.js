@@ -13,6 +13,20 @@ function Book(title, author, pages, read) {
         add dark mode
         add summary/dashboard feature
  */
+const addButton = document.querySelector(".modal");
+addButton.addEventListener("click", toggleForm);
+
+function toggleForm(e) {
+  const btn = e.target;
+
+  btn.classList.toggle("delete");
+  btn.classList.toggle("modal");
+  btn.textContent = (btn.textContent === "Close")? "ADD BOOK": "Close";
+  
+  const menu = document.querySelector(".new-book-form");
+
+  menu.classList.toggle("hidden");
+}
 
 function renderBookInLibrary(book) {
   const library = document.querySelector("tbody");

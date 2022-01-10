@@ -19,7 +19,7 @@ a {
     font-size: smaller; 
     margin: 0 0 30px 0;
     text-decoration: none;
-    color: #795548;
+    color: #8d6e63;
 }
 
 h1 {
@@ -38,7 +38,7 @@ h3 {
 form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
+    margin-bottom: 15px;
     border-radius: 0.5em;
     padding: 1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -60,15 +60,13 @@ form {
     }
 
     .button {
-        width: max-content;
-        background-color: #a1887f;
+        background-color: #8d6e63;
         color: whitesmoke;
-        margin: 10px;
+        margin-top: 20px;
+        align-self: center;
     }
 
-    label {
-        font-weight: 300;
-    }
+
 }
 
 .read{
@@ -107,6 +105,7 @@ form {
     border-radius: 5px;
     overflow: hidden;
     border-collapse: collapse;
+    margin-bottom: 10px;
 
     thead tr {
         text-align: left;
@@ -127,4 +126,9 @@ form {
            border-top: 1px solid #dddddd;
         }
     }
+}
+
+.modal {
+    background-color: #1098ad;
+    color: white;
 }
