@@ -74,7 +74,6 @@ function deleteBook(e) {
   const deleteButton = e.target;
   const bookCard = deleteButton.parentElement.parentElement;
   let bookIndex = myLibrary.findIndex( book => book.title === bookCard.firstChild.textContent);
-  console.log(bookIndex);
 
   //remove from array
   myLibrary.splice(bookIndex, 1);
@@ -86,7 +85,7 @@ function deleteBook(e) {
 }
 
 function toggleRead(e) {
-  const readButton = e.target;;
+  const readButton = e.target;
 
   //the book in myLibrary
   let book = myLibrary.find( book => book.title === e.target.parentElement.parentElement.firstChild.textContent);
@@ -171,11 +170,7 @@ formElem.addEventListener("submit", addNewBook);
 
 //setting default data
 let harryPotter = new Book(
-  "Harry Potter and the Sorcerer's Stone",
-  "J. K. Rowling",
-  223,
-  false
-);
+  "Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 223, false);
 let LOR = new Book("The Lord of the Rings", "J. R. R. Tolkien", 1137, true);
 const DEFAULT_CONTENT = [harryPotter, LOR];
 
