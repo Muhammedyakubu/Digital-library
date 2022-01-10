@@ -60,6 +60,7 @@ function deleteBook(e) {
 
   //remove from array
   myLibrary.splice(bookIndex, 1);
+  updateLocalStorage();
 
   //remove from HMTL
   bookCard.remove();
