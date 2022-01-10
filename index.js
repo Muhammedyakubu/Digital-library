@@ -74,13 +74,16 @@ function renderBookInLibrary(book) {
 function deleteBook(e) {
   const deleteButton = e.target;
   const bookCard = deleteButton.parentElement.parentElement;
-  let bookIndex = deleteButton.id.slice(-1);
+  let bookIndex = myLibrary.findIndex( book => book.title === bookCard.firstChild.textContent);
+  console.log(bookIndex);
 
   //remove from array
   myLibrary.splice(bookIndex, 1);
 
   //remove from HMTL
   bookCard.remove();
+
+  updateLocalStorage();
 }
 
 function toggleRead(e) {
@@ -108,12 +111,20 @@ function addNewBook(e) {
 
   if (e.constructor.name == "Book" || e.constructor.name == "Object") {
     book = e;
+    if (bookExists(book)) {
+      alert("Book exists in Library!");
+      return;
+    }
   } else {
     book = new Book();
 
     //prevent reload
     e.preventDefault();
-
+    
+    if (bookExists(book)) {
+      alert("Book exists in Library!");
+      return;
+    }
     for (const property in book) {
       const input = document.getElementById(property);
 
@@ -145,6 +156,10 @@ function render (arr) {
   })
 }
 
+function bookExists(book) {
+  return myLibrary.find( element => element.title === book.title) != null;
+}
+
 function updateLocalStorage() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
@@ -173,6 +188,7 @@ if (userData) {
 } else {
   render(DEFAULT_CONTENT);
 }
+
 
 /*TODO: Implement feature to suggest books and autofill data
         add dark mode
