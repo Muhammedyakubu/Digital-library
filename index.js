@@ -71,7 +71,7 @@ function toggleRead(e) {
   const bookCard = e.target.parentElement.parentElement;
 
   //the book in myLibrary
-  let book = myLibrary.findIndex( book => book.title === bookCard.firstChild.textContent);
+  const book = myLibrary.find( book => book.title === bookCard.firstChild.textContent);
 
   //changing the read state and button text
   if (book.read) {
@@ -107,7 +107,7 @@ function addNewBook(e) {
         return;
       }
       if (property === "read") {
-        book[property] = book.read === "true" ? true : false;
+        book[property] = input.value === "true" ? true : false;
       } else {
         book[property] = input.value;
       }
