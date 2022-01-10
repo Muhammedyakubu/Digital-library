@@ -7,8 +7,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-/* TODO: convert add book to modal(popup)
-        Implement localStorage
+/*TODO: Implement localStorage
         Implement feature to suggest books and autofill data
         add dark mode
         add summary/dashboard feature
