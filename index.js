@@ -56,7 +56,7 @@ function renderBookInLibrary(book) {
 function deleteBook(e) {
   const deleteButton = e.target;
   const bookCard = deleteButton.parentElement.parentElement;
-  let bookIndex = deleteButton.id.slice(-1);
+  let bookIndex = myLibrary.findIndex( book => book.title === bookCard.firstChild.textContent);
 
   //remove from array
   myLibrary.splice(bookIndex, 1);
@@ -67,14 +67,12 @@ function deleteBook(e) {
 
 function toggleRead(e) {
   const readButton = e.target;
+  const bookCard = e.target.parentElement.parentElement;
 
-  console.log(e.target);
-
-  //the index of the book in myLibrary
-  const book = myLibrary[readButton.id.slice(-1)];
+  //the book in myLibrary
+  let book = myLibrary.findIndex( book => book.title === bookCard.firstChild.textContent);
 
   //changing the read state and button text
-  console.log(book);
   if (book.read) {
     book.read = false;
     readButton.textContent = "Not Read";
@@ -115,19 +113,18 @@ function addNewBook(e) {
       input.value = "";
     }
   }
+  
   // adding book to library
-if (bookExists(book)) {
-      alert("Book exists in Library!");
-      return;
-}
+  if (bookExists(book)) {
+    alert("Book exists in Library!");
+    return;
+  }
 
   renderBookInLibrary(book);
   myLibrary.push(book);
 
   //setting library in local storage
   updateLocalStorage();
-
-  //TODO: add input validation
 }
 
 function render (arr) {
