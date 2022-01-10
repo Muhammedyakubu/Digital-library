@@ -7,7 +7,6 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-
 const addButton = document.querySelector(".modal");
 addButton.addEventListener("click", toggleForm);
 
@@ -164,7 +163,7 @@ function updateLocalStorage() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
-//=================MAIN CODE=========================//
+//=================MAIN CODE==================//
 
 // link the submit button
 const formElem = document.querySelector("form");
