@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;700;800&display=swap");
 body {
   font-family: Sora, sans-serif;
-  font-size: 100%;
+  font-size: 90%;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,6 +13,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.hidden {
+  display: none;
 }
 
 a {
@@ -59,7 +66,7 @@ form .container {
 }
 
 form .book-input {
-  border: 2px solid lightgray;
+  border: 1px solid lightgray;
   border-radius: 0.5em;
   border-width: 1px;
   padding: 0.3em;
@@ -67,11 +74,6 @@ form .book-input {
   font-size: 1em;
   font-weight: 300;
   margin-top: 3px;
-}
-
-form .book-input:hover,
-form .book-input:focus {
-  border: 1px solid black;
 }
 
 form .button {
@@ -104,10 +106,14 @@ form label {
   height: 37px;
 }
 
-.button:hover {
-  border: 2px solid #4dabf7;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+.button:hover,
+.book-input:hover,
+.button:active,
+.book-input:focus {
+  border: 1px solid #4dabf7;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  outline: 0;
 }
 
 .delete {
@@ -124,6 +130,7 @@ form label {
 
 #library thead tr {
   text-align: left;
+  border-bottom: 1px solid #dddddd;
 }
 
 #library th {
@@ -137,11 +144,5 @@ form label {
 #library tbody tr {
   padding: 20px;
   border-top: 1px solid #dddddd;
-}
-
-#library tbody tr:hover {
-  background-color: #D9EAFF;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 /*# sourceMappingURL=style.css.map */
