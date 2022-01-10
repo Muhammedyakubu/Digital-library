@@ -7,13 +7,6 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-/* TODO: convert add book to modal(popup)
-        Implement localStorage
-        Implement feature to suggest books and autofill data
-        add dark mode
-        add summary/dashboard feature
- */
-
 function renderBookInLibrary(book) {
   const library = document.querySelector("tbody");
   const bookCard = document.createElement("tr");
@@ -98,7 +91,7 @@ function toggleRead(e) {
 function addNewBook(e) {
   let book;
 
-  if (e.constructor.name == "Book") {
+  if (e.constructor.name == "Book" || e.constructor.name == "Object") {
     book = e;
   } else {
     book = new Book();
@@ -123,6 +116,11 @@ function addNewBook(e) {
     }
   }
   // adding book to library
+if (bookExists(book)) {
+      alert("Book exists in Library!");
+      return;
+}
+
   renderBookInLibrary(book);
   myLibrary.push(book);
 
@@ -138,27 +136,40 @@ function render (arr) {
   })
 }
 
+function bookExists(book) {
+  return myLibrary.find( element => element.title === book.title) != null;
+}
+
 function updateLocalStorage() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
+//=================MAIN CODE==================//
+
+// link the submit button
 const formElem = document.querySelector("form");
 formElem.addEventListener("submit", addNewBook);
 
 //setting default data
-let harryPotter = new Book(
-  "Harry Potter and the Sorcerer's Stone",
-  "J. K. Rowling",
-  223,
-  false
-);
+let harryPotter = new Book("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 223, false);
 let LOR = new Book("The Lord of the Rings", "J. R. R. Tolkien", 1137, true);
 const DEFAULT_CONTENT = [harryPotter, LOR];
 
 //displaying user data
 if (localStorage.getItem("library")) {
-  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));   
   render(myLibrary);
+let userData = localStorage.getItem("myLibrary");
+if (userData) {
+  userData = JSON.parse(userData);
+  render(userData);
 } else {
-  render(DEFAULT_CONTENT);
+   render(DEFAULT_CONTENT);
 }
+
+/* TODO: convert add book to modal(popup)
+        Implement localStorage
+        Implement feature to suggest books and autofill data
+        add dark mode
+        add summary/dashboard feature
+ */
