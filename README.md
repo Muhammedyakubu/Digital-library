@@ -1,5 +1,4 @@
 ## Digi-Lib
 
-A digital library written from scratch in HTML, SASS, and JavaScript.
-
-Live at: https://muhammedyakubu.github.io/Digital-library/
+This branch cleans up the interface by changing the mechanism to add new books. 
+Now the UI to add new books implements a simple popup modal
